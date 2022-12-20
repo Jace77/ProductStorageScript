@@ -8,7 +8,7 @@ randomlist=[]
 for k in data:
     randomlist.append(k+' '+data[k])
 interface = [
-    [sg.Listbox(values=randomlist, size=(20, 10))],
+    [sg.Listbox(values=randomlist, key='box', size=(20, 10))],
     [sg.InputText(key='product', size=(20, 1))],
     [sg.InputText(key='num', size=(20, 1))],
     [sg.Button('Add'), sg.Button('Close')]
@@ -24,5 +24,8 @@ while True:
         data[values['product']] = values['num']
         output.write(json.dumps(data))
         output.close()
+        for k in data:
+            randomlist.append(k + ' ' + data[k])
+        window['box'].update(randomlist)
     if event == 'Close' or event == WINDOW_CLOSED:
         break
