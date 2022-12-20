@@ -4,9 +4,11 @@ from PySimpleGUI import WINDOW_CLOSED
 
 file = open('data.json', 'r')
 data = json.load(file)
-
+randomlist=[]
+for k in data[0]:
+    randomlist.append(k+' '+data[0][k])
 interface = [
-    [sg.Listbox(values=data[0], size=(20, 10))],
+    [sg.Listbox(values=randomlist, size=(20, 10))],
     [sg.InputText(key='product', size=(20, 1))],
     [sg.InputText(key='num', size=(20, 1))],
     [sg.Button('Add'), sg.Button('Close')]
