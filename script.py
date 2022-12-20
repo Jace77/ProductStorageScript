@@ -4,7 +4,7 @@ import PySimpleGUI as sg
 file = open('data.json')
 data = json.load(file)
 
-interface = [[sg.Listbox(values=data, size=(20, 50))],
+interface = [[sg.Listbox(values=data, size=(20, 10))],
     [sg.InputText(key='product', size=(20, 1))],
     [sg.InputText(key='num', size=(20, 1))],
     [sg.Button('Save'), sg.Button('Close')]]
