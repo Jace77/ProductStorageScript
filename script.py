@@ -24,6 +24,7 @@ while True:
         data[values['product']] = values['num']
         output.write(json.dumps(data))
         output.close()
+        randomlist = []
         for k in data:
             randomlist.append(k + ' ' + data[k])
         window['box'].update(randomlist)
