@@ -14,7 +14,7 @@ window.read()
 
 while True:
     event, values = window.read()
-    if event =='Close' or event == sg.WINDOW_CLOSED():
+    if event =='Close':
         break
     if event == 'Save':
         data[0][values['product']]=values['num']
