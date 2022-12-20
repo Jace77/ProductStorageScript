@@ -2,7 +2,7 @@ import json
 import PySimpleGUI as sg
 from PySimpleGUI import WINDOW_CLOSED
 
-file = open('data.json', 'w')
+file = open('data.json', 'r')
 data = json.load(file)
 
 interface = [[sg.Listbox(values=data, size=(20, 10))],
@@ -12,14 +12,14 @@ interface = [[sg.Listbox(values=data, size=(20, 10))],
 
 window = sg.Window('Warehouse Contents', interface, margins=(100, 100))
 window.read()
-
+output=open('data.json', 'w')
 while True:
     event, values = window.read()
     if event == 'Add':
         data[0][values['product']]=values['num']
-        json.dump(data, file)
+        output.write('data')
     if event == 'Edit':
         data[0][values[[0]]] = values['num']
-        json.dump(data, file)
+        json.dump(data, output)
     if event == 'Close' or event == WINDOW_CLOSED:
         break
