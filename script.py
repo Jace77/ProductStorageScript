@@ -1,5 +1,6 @@
 import json
 import PySimpleGUI as sg
+from PySimpleGUI import WINDOW_CLOSED
 
 file = open('data.json')
 data = json.load(file)
@@ -16,7 +17,9 @@ while True:
     event, values = window.read()
     if event == 'Add':
         data[0][values['product']]=values['num']
+        json.dump(data, file)
     if event == 'Edit':
         data[0][values[[0]]] = values['num']
-    if event == 'Close':
+        json.dump(data, file)
+    if event == 'Close' or event == WINDOW_CLOSED:
         break
