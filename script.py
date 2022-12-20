@@ -2,7 +2,7 @@ import json
 import PySimpleGUI as sg
 from PySimpleGUI import WINDOW_CLOSED
 
-file = open('data.json', 'w')
+file = open('data.json', 'r+')
 data = json.load(file)
 
 interface = [[sg.Listbox(values=data, size=(20, 10))],
