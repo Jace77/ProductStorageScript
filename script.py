@@ -18,5 +18,5 @@ while True:
         data[0][values['product']]=values['num']
     if event == 'Edit':
         data[0][values[[0]]] = values['num']
-    if event == 'Close' or event == sg.WINDOW_CLOSED():
+    if event == 'Close':
         break
