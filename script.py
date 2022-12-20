@@ -14,9 +14,9 @@ window.read()
 
 while True:
     event, values = window.read()
-    if event =='Close' or event == sg.WINDOW_CLOSED():
-        break
     if event == 'Add':
         data[0][values['product']]=values['num']
     if event == 'Edit':
         data[0][values[[0]]] = values['num']
+    if event == 'Close' or event == sg.WINDOW_CLOSED():
+        break
