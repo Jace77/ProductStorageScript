@@ -1,14 +1,20 @@
 import json
 import PySimpleGUI as sg
-interface = [[sg.Text('', size=(20, 1)), sg.InputText()],
-             [sg.Text('', size=(50, 1), key='output', text_color="red")],
-             [sg.Button('Save'), sg.Button('Close')]]
 
-window = sg.Window('Spejdersport', interface, margins=(100, 100))
+file = open('data.json')
+data = json.load(file)
+
+interface = [[sg.Listbox(values=data, size=(20, 50))],
+    [sg.InputText(key='product', size=(20, 1))],
+    [sg.InputText(key='num', size=(20, 1))]
+    [sg.Button('Save'), sg.Button('Close')]]
+
+window = sg.Window('Warehouse Contents', interface, margins=(100, 100))
 window.read()
 
 while True:
-    event, values =window.read()
+    event, values = window.read()
     if event =='Close' or event == sg.WINDOW_CLOSED():
         break
-if event == 'Save':
+    if event == 'Save':
+        data[0][values['product']]=values['num']
