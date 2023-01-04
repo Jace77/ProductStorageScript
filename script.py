@@ -9,8 +9,8 @@ for k in data:
     randomlist.append(k+' '+data[k])
 interface = [
     [sg.Listbox(values=randomlist, key='box', size=(20, 10))],
-    [sg.InputText(key='product', size=(20, 1))],
-    [sg.InputText(key='num', size=(20, 1))],
+    [sg.Text("Vare:"), sg.InputText(key='product', size=(20, 1))],
+    [sg.Text("Antal:"), sg.InputText(key='num', size=(20, 1))],
     [sg.Button('Add'), sg.Button('Close')]
 ]
 
